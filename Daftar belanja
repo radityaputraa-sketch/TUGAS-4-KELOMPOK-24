@@ -74,3 +74,25 @@ def main():
     while True:
         tampilkan_menu()
         pilihan = input("Pilih menu (1-4): ")
+
+if pilihan == "1":
+            items = input("Masukkan item yang akan ditambahkan (pisahkan dengan koma jika lebih dari satu): ")
+            belanjaan.tambah_item(items)
+        
+        elif pilihan == "2":
+            item = input("Masukkan nama item yang akan dihapus: ")
+            hasil = belanjaan.hapus_item(item)
+            print(hasil)
+        
+        elif pilihan == "3":
+            belanjaan.tampilkan_daftar()
+        
+        elif pilihan == "4":
+            print("Terima kasih sudah menggunakan aplikasi Daftar Belanja.")
+            break
+        
+        else:
+            print("Pilihan tidak valid, silakan pilih angka 1-4.")
+
+if _name_ == "_main_":
+    main()
