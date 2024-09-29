@@ -27,3 +27,36 @@ def proses_input(items):
         hasil.append((nama_item, kuantitas))
 
     return hasil
+
+class DaftarBelanja:
+    def __init__(self):
+        self.daftar_belanja = {}
+
+    def tambah_item(self, items):
+        items_proses = proses_input(items)  
+        for item, kuantitas in items_proses:
+            if cek_item(item, self.daftar_belanja):
+                self.daftar_belanja[item] += kuantitas
+                print(f"{item} sudah ada dalam daftar! Kuantitasnya bertambah menjadi {self.daftar_belanja[item]}.")
+            else:
+                self.daftar_belanja[item] = kuantitas
+                print(f"{item} berhasil ditambahkan ke daftar belanja dengan kuantitas {kuantitas}.")
+    
+    def hapus_item(self, item):
+        if cek_item(item, self.daftar_belanja):
+            if self.daftar_belanja[item] > 1:
+                self.daftar_belanja[item] -= 1
+                return f"Kuantitas {item} berkurang menjadi {self.daftar_belanja[item]}."
+            else:
+                del self.daftar_belanja[item]
+                return f"{item} berhasil dihapus dari daftar belanja."
+        else:
+            return f"{item} tidak ada dalam daftar belanja."
+
+    def tampilkan_daftar(self):
+        if self.daftar_belanja:
+            print("Daftar belanja Anda:")
+            for item, kuantitas in self.daftar_belanja.items():
+                print(f"- {kuantitas} {item}")
+        else:
+            print("Daftar belanja masih kosong.")
