@@ -10,3 +10,20 @@ def tampilkan_daftar_belanja(daftar_belanja):
     print("Daftar belanja saat ini:")
     for item, kuantitas in daftar_belanja.items():
         print(f"- {kuantitas} {item}")
+
+def proses_input(items):
+    items_list = [item.strip() for item in items.split(',')]  
+    hasil = []
+
+    for item in items_list:
+        match = re.match(r'(\d+)\s*(.*)', item)
+        if match:
+            kuantitas = int(match.group(1))
+            nama_item = match.group(2).strip()
+        else:
+            kuantitas = 1  
+            nama_item = item.strip()
+
+        hasil.append((nama_item, kuantitas))
+
+    return hasil
