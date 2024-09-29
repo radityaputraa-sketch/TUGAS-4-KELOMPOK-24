@@ -60,3 +60,17 @@ class DaftarBelanja:
                 print(f"- {kuantitas} {item}")
         else:
             print("Daftar belanja masih kosong.")
+
+def tampilkan_menu():
+    print("\n=== MENU ===")
+    print("1. Tambah Item")
+    print("2. Hapus Item")
+    print("3. Tampilkan Daftar Belanja")
+    print("4. Keluar")
+
+def main():
+    belanjaan = DaftarBelanja() 
+
+    while True:
+        tampilkan_menu()
+        pilihan = input("Pilih menu (1-4): ")
