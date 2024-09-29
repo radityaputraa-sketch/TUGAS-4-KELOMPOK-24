@@ -60,6 +60,3 @@ class DaftarBelanja:
                 print(f"- {kuantitas} {item}")
         else:
             print("Daftar belanja masih kosong.")
-
-def tampilkan_menu():
-    print("\n=== Menu ===")
